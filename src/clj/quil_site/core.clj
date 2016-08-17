@@ -7,13 +7,9 @@
             [ring.adapter.jetty :refer [run-jetty]]
             [ring.middleware.stacktrace :as stacktrace]
             [quil-site.controllers.sketches :as sketches]
-            [quil-site.controllers.api :as api]
-            [quil-site.views.about :refer [about-page]]
-            [quil-site.views.examples :refer [examples-page]]))
+            [quil-site.controllers.api :as api]))
 
 (defroutes app
-  (GET "/" [] (about-page))
-  (GET "/examples" [] (examples-page))
   sketches/routes
   (files "/out-main" {:root "out-main"})
   (files "/out-editor" {:root "out-editor"})
