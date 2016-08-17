@@ -73,10 +73,7 @@
   (page {:type :api
          :tab :api
          :title "Quil API"
-         :js-files ["/js/api.js"]}
-        (for [column index-page-columns]
-          [:div.col-md-2.col-sm-4.col-xs-6
-           (map #(render-category-index % (functions %)) column)])))
+         :js-files ["/js/api.js"]}))
 
 (defn- trim-docstring
   "Removes extra spaces in the begginning of dostringing lines."
