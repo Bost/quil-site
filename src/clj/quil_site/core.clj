@@ -15,7 +15,6 @@
   (GET "/" [] (about-page))
   (GET "/examples" [] (examples-page))
   sketches/routes
-  api/routes
   (files "/out-main" {:root "out-main"})
   (files "/out-editor" {:root "out-editor"})
   (files "/out-preload" {:root "out-preload"})
