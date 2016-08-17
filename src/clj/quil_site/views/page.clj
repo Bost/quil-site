@@ -40,22 +40,6 @@
 
 (defn- body [opts content]
   [:body
-   [:div.navbar.navbar-default {:role "navigation"}
-    [:div.container
-     [:div.navbar-header
-      [:button.navbar-toggle {:type "button"
-                              :data-toggle "collapse"
-                              :data-target ".navbar-collapse"}
-       [:span.sr-only "Toggle navigation"]
-       [:span.icon-bar]
-       [:span.icon-bar]
-       [:span.icon-bar]]
-      [:a.navbar-brand {:href "/"} "Quil"]]
-
-     [:div.collapse.navbar-collapse
-      [:ul.nav.navbar-nav
-       (make-tab opts :create "Create" "/sketches/create")]]]]
-
    [:div {:class (str (-> opts :type (or "") name)
                       " "
                       (:container-class opts "container"))}
