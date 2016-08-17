@@ -21,14 +21,6 @@
   ([selector]
      (query-selector-all js/document selector)))
 
-(defn num-of-visible-examples []
-  (let [size (dom/getViewportSize)
-        width (.-width size)]
-    (condp < width
-      992 3
-      768 2
-      0   1)))
-
 (extend-type js/NodeList
   ISeqable
   (-seq [array] (array-seq array 0)))
@@ -124,17 +116,6 @@
                             "async" "async"})
     (dom/append js/document.body script)))
 
-(defn init-about-page []
-  (let [[visible invisible] (split-at (num-of-visible-examples)
-                                      (query-selector-all ".example"))]
-    (doseq [[host example-name] (map vector visible (get-examples-to-show))]
-      (if-let [example (@examples example-name)]
-        (run-example example host)
-        (load-example example-name host)))
-    (doseq [host invisible]
-      (dom/removeNode host))
-    (enable-tooltips)))
-
 (defn init-examples-page []
   (doseq [example-name available-examples]
     (let [host (.cloneNode (query-selector "#template") true)]
@@ -147,9 +128,7 @@
   (enable-tooltips))
 
 (defn init []
-  (cond (query-selector ".container.about")
-        (init-about-page)
-        (query-selector ".container.examples-page")
+  (cond (query-selector ".container.examples-page")
         (init-examples-page)))
 
 (events/listenOnce js/window EventType/LOAD init)
