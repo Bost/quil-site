@@ -2,7 +2,6 @@
   (:require [compojure.core :refer :all :exclude [routes]]
             [compojure.route :refer [not-found]]
             [ring.util.response :as resp]
-            [quil-site.views.api :as views]
             [clojure.tools.reader.edn :as edn]
             [clojure.tools.reader.reader-types :refer [string-push-back-reader]]))
 
@@ -23,9 +22,4 @@
 
 (def fns-by-categories (split-into-categories all-fns))
 
-(def url->full (->> (concat (keys fns-by-categories)
-                            (mapcat keys (vals fns-by-categories)))
-                    (remove nil?)
-                    (map #(vector (views/as-url %) %))
-                    (into {})))
 
