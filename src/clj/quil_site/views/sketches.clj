@@ -23,17 +23,7 @@
            {:data-toggle "tooltip"
             :data-placement "bottom"
             :title "Reset drawing area. Doesn't affect code."}
-           "Clear"]
-          [:button#hide.btn.disabled
-           {:data-toggle "tooltip"
-            :data-placement "bottom"
-            :title "Hide drawing area revealing editor."}
-           "Hide"]
-          [:button#share.btn
-           {:data-toggle "tooltip"
-            :data-placement "bottom"
-            :title "Share sketch via URL."}
-           "Share"]]
+           "Clear"]]
          [:dev#result-status.alert
           {:role "alert"}]]
 
@@ -48,20 +38,4 @@
           {:style "width: 0px;"}
           [:iframe {:src "/iframe.html"
                     :width "0"
-                    :height "0"}]]]
-
-        [:div.modal.fade
-         {:tabindex "-1"
-          :id "share-dialog"
-          :role "dialog"}
-         [:div.modal-dialog.modal-sm
-          [:div.modal-content
-           [:div.modal-header
-            [:button.close
-             {:type "button"
-              :data-dismiss "modal"
-              :aria-label "Close"}
-             [:span {:aria-hidden "true"} "&times"]]
-            [:h4.modal-title "Share URL"]]
-           [:div.modal-body
-            [:input.form-control {:readonly "readonly"}]]]]]))
+                    :height "0"}]]]))
