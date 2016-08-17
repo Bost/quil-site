@@ -13,20 +13,3 @@
                                   "&" "and"
                                   "?" "_q"})))
 
-(defn api-index [functions]
-  (page {:type :api
-         :tab :api
-         :title "Quil API"
-         :js-files ["/js/api.js"]}))
-
-(defn api-category [cat subcats]
-  (page {:type :api
-         :tab :api
-         :title (str "Quil API " cat)
-         :js-files ["/js/api.js"]}))
-
-(defn api-subcategory [cat subcat fns]
-  (page {:type :api
-         :tab :api
-         :title (str "Quil API " subcat)
-         :js-files ["/js/api.js"]}))
